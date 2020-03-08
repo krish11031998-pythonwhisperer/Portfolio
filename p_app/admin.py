@@ -8,4 +8,5 @@ admin.site.register(models.Project)
 admin.site.register(models.Skill)
 admin.site.register(models.Description)
 admin.site.register(models.Tech_Framework)
+admin.site.register(models.Skill_pb)
 

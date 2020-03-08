@@ -436,11 +436,15 @@ nav{
 	height: auto;
 	position: relative;
 	border-bottom: 1px solid rgba(194, 182, 182, 0.253);
- }
+}
 
  .skillbar{
 	border-bottom: 0px;
  }
+
+.hide{
+	display: none;
+}
 
 .technologies{
 	font-family: 'Avant Garde Book BT';

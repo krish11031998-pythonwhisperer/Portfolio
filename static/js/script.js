@@ -50,15 +50,15 @@ $(document).ready(function (){
         element: $('.js--wp-2'),
         handler: function(direction){
             this.element.addClass('animated fadeInUp');
-            Python.animate_bar(0.90);
+            Python.animate_bar();
             
-            JS.animate_bar(0.85);
+            JS.animate_bar();
             
-            HTML.animate_bar(0.80);
+            HTML.animate_bar();
             
-            CSS.animate_bar(0.70);
+            CSS.animate_bar();
             
-            CSharp.animate_bar(0.70);
+            CSharp.animate_bar();
         },
         offset: "60%"
     });
@@ -103,6 +103,8 @@ $(document).ready(function (){
 
 class Skill_bar {
     constructor(id,color='#000000',color_from='#FA3D3D',color_to = '#74E800'){
+        this.value = parseFloat($(id).text())/100;
+        console.log(`${id} => ${this.value}`);
         this.color = color
         this.color_from = color_from
         this.color_to = color_to
@@ -136,9 +138,9 @@ class Skill_bar {
         });
     }
 
-    animate_bar(value){
+    animate_bar(){
         this.skill_progress_bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
         this.skill_progress_bar.text.style.fontSize = '2rem';
-        this.skill_progress_bar.animate(value);
+        this.skill_progress_bar.animate(this.value);
     }
 }

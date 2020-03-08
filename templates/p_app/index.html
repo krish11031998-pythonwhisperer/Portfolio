@@ -106,46 +106,20 @@
 		<section class="skills clearfix js--wp-2" id="js-skills">
 			<h1 class="h_box black_white">Skills</h1>
 			<div class="row">
-				<div class="col span-1-of-5 skill-box">
-					<div class="skill_info">
-						<h3><ion-icon name="logo-python"></ion-icon> Python</h3>
+				{%for skill_pb in skill_pbs%}
+					<div class="col span-1-of-5 skill-box">
+						<div class="skill_info">
+							{%if skill_pb.icon_tag%}
+								<h3><ion-icon name={{skill_pb.icon_tag}}></ion-icon> {{skill_pb.name}}</h3>
+							{%else%}
+								<h3>{{skill_pb.name}}</h3>
+							{%endif%}
+						</div>
+						<div class="skill_info skillbar">
+							<div id={{skill_pb.tag}}><p class="hide"> {{skill_pb.value_percent}}</p></div>
+						</div>
 					</div>
-					<div class="skill_info skillbar">
-						<div id="Skill_1"></div>
-					</div>
-				</div>
-				<div class="col span-1-of-5 skill-box">
-					<div class="skill_info">
-						<h3><ion-icon name="logo-javascript"></ion-icon> Javascript</h3>
-					</div>
-					<div class="skill_info skillbar">
-						<div id="Skill_2"></div>
-					</div>
-				</div>
-				<div class="col span-1-of-5 skill-box">
-					<div class="skill_info">
-						<h3><ion-icon name="logo-html5"></ion-icon> HTML</h3>
-					</div>
-					<div class="skill_info skillbar">
-						<div id="Skill_3"></div>
-					</div>
-				</div>
-				<div class="col span-1-of-5 skill-box">
-					<div class="skill_info">
-						<h3><ion-icon name="logo-css3"></ion-icon> CSS</h3>
-					</div>
-					<div class="skill_info skillbar">
-						<div id="Skill_4"></div>
-					</div>
-				</div>
-				<div class="col span-1-of-5 skill-box">
-					<div class="skill_info">
-						<h3>C#</h3>
-					</div>
-					<div class="skill_info skillbar">
-						<div id="Skill_5"></div>
-					</div>
-				</div>
+				{%endfor%}
 			</div>
 			<div class="row technologies box">
 				<h3>Technologies and Frameworks</h3>
@@ -266,7 +240,6 @@
 
 				</div>
 			</div>
-
 		</footer>
 		<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

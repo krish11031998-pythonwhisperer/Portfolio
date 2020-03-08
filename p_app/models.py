@@ -12,7 +12,7 @@ class person(models.Model):
 
 
 	def __str__(self):
-	 return self.Name
+		return self.Name
 
 class work_exp(models.Model):
 	designation = models.CharField(max_length=150)
@@ -28,6 +28,7 @@ class work_exp(models.Model):
 
 
 class Skill(models.Model):
+
 	skill = models.CharField(max_length=50,blank=True)
 
 	def __str__(self):
@@ -38,9 +39,8 @@ class Tech_Framework(models.Model):
 	tech = models.CharField(max_length=50)
 	frameworks = models.ManyToManyField(Skill)
 
-
 	def __str__(self):
-    		return self.tech
+		return self.tech
 
 class Project(models.Model):
 
@@ -63,3 +63,12 @@ class Description(models.Model):
 		return self.tag
 
 
+class Skill_pb(models.Model):
+
+	name = models.CharField(max_length=50,blank=False)
+	value_percent = models.IntegerField(blank=False)
+	tag = models.CharField(max_length=50,null=True,blank=False)
+	icon_tag = models.CharField(max_length=20,null=True,blank=True)
+
+	def __str__(self):
+		return self.name
