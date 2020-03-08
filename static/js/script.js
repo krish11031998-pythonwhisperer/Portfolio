@@ -50,15 +50,15 @@ $(document).ready(function (){
         element: $('.js--wp-2'),
         handler: function(direction){
             this.element.addClass('animated fadeInUp');
-            Python.animate_bar(0.90,color_to='#1BBD2F');
+            Python.animate_bar(0.90);
             
-            JS.animate_bar(0.75);
+            JS.animate_bar(0.85);
             
             HTML.animate_bar(0.80);
             
             CSS.animate_bar(0.70);
             
-            CSharp.animate_bar(0.80);
+            CSharp.animate_bar(0.70);
         },
         offset: "60%"
     });
@@ -102,8 +102,9 @@ $(document).ready(function (){
 });
 
 class Skill_bar {
-    constructor(id,color='#00f',color_to = '#00f'){
+    constructor(id,color='#000000',color_from='#FA3D3D',color_to = '#74E800'){
         this.color = color
+        this.color_from = color_from
         this.color_to = color_to
         this.id = id
         this.skill_progress_bar = new ProgressBar.Circle(this.id, {
@@ -117,7 +118,7 @@ class Skill_bar {
             text: {
               autoStyleContainer: false
             },
-            from: { color: this.color, width: 1 },
+            from: { color: this.color_from, width: 1 },
             to: { color: this.color_to, width: 4 },
             // Set default step function for all animate calls
             step: function(state, circle) {

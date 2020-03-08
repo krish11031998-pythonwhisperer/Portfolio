@@ -36,7 +36,7 @@
 				</div>
 			</section>
 		</header>
-		<section class="portfolio-profile js--section-portfolio-summary" id= "js-portfolio-summary">
+		<section class="portfolio-profile clearfix js--section-portfolio-summary" id= "js-portfolio-summary">
 			<h1 class="h_box black_white">Introduction</h1>
 			<div class="row">
 			{%for p in Person%}
@@ -84,17 +84,17 @@
 						</div>
 					</div>
 					<div class="row">
-						<p id="skill">I am interested in the follwoing feilds of technologies</p>
+						<p id="skill">I am interested in the follwoing fields of technologies</p>
 					</div>
 					<div class="row">
 						<div class="col span-1-of-4 interest">
-							<h3>Back-End Development</h3>
+							<h3>Full Stack Development</h3>
 						</div>
 						<div class="col span-1-of-4 interest">
 							<h3>Artificial Intelligence</h3>
 						</div>
 						<div class="col span-1-of-4 interest">
-							<h3>Front-End Development</h3>
+							<h3>App Development</h3>
 						</div>
 						<div class="col span-1-of-4 interest">
 							<h3>Robotics Systems</h3>
@@ -103,23 +103,6 @@
 				</div>
 			</div>
 		</section>
-		<!-- <section class="education">
-			<h1 class="h_box white_black">Education</h1>
-			<div class="row">
-				<div class="col span-1-of-2 uni_edu">
-					<h3><ion-icon name="book"></ion-icon>University of Southampton [MEng]</h3>
-					<ul>
-						<li>Mechatronics Engineering - Graduated - 2.1 (3.3 GPA)</li>
-						<ul class="sub_list">
-							<li>Designing</li>
-							<li>Advnanced Computing</li>
-							<li>Electronics</li>
-						</ul>
-					</ul>
-						
-				</div>
-			</div>
-		</section> -->
 		<section class="skills clearfix js--wp-2" id="js-skills">
 			<h1 class="h_box black_white">Skills</h1>
 			<div class="row">
@@ -166,22 +149,19 @@
 			</div>
 			<div class="row technologies box">
 				<h3>Technologies and Frameworks</h3>
-				<div class="col span-1-of-2 bold">
+				<div class = "col span-1-of-2 bold">
 					<ul>
-						<li>Deep Learning</li>
-						<li>Computer Vision</li>
-						<li>Web Development</li>
-						<li>Micro-Controllers</li>
-						<li>Databases</li>
+						{%for tech_f in tech_frameworks.all%}
+							<li>{{tech_f.tech}}</li>
+						{%endfor%}
 					</ul>
 				</div>
+				
 				<div class="col span-1-of-2">
 					<ul>
-						<li>Tensorflow, Keras, Scikit-learn</li>
-						<li>OpenCV, iMultils, Pillow</li>
-						<li>Django, jQuery, NPM, Webpack</li>
-						<li>Arduino, Raspberry Pi , etc.</li>
-						<li>PostgreSQL, SQLite</li>
+						{%for tech_f in tech_frameworks.all%}
+							<li>{%for framework in tech_f.frameworks.all%}{{framework.skill}} , {%endfor%} etc.</li>
+						{%endfor%}
 					</ul>
 				</div>
 			</div>
@@ -189,11 +169,11 @@
 		<section class="experiences  clearfix" id="js-work-xp">
 			<div class="row js--wp-3">
 				<h1 class="h_box white_black">Work Experiences</h1>
-				{%for work in w_exp%}
-				<div class="col span-1-of-2 work">
+				{%for work in w_exp.all%}
+				<div class="col span-1-of-3 work" style="width: 30%;">
 					<div>
 						<h3>{{work.designation}}</h3>
-						<p class="location">{{work.location}}</p>
+						<p class="location">{{work.company}} ,  {{work.location}}</p>
 						<p class="year">{{work.year}}</p>
 					</div>
 					<div>

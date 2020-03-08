@@ -18,6 +18,7 @@ class work_exp(models.Model):
 	designation = models.CharField(max_length=150)
 	year = models.CharField(max_length=150)
 	location = models.CharField(max_length=75,blank=True,null=True)
+	company = models.CharField(max_length=50,null=True)
 	P_1 = models.CharField(max_length= 500)
 	P_2 = models.CharField(max_length= 500)
 	P_3 = models.CharField(max_length= 500)
@@ -32,6 +33,14 @@ class Skill(models.Model):
 	def __str__(self):
 		return self.skill
 
+class Tech_Framework(models.Model):
+    
+	tech = models.CharField(max_length=50)
+	frameworks = models.ManyToManyField(Skill)
+
+
+	def __str__(self):
+    		return self.tech
 
 class Project(models.Model):
 
