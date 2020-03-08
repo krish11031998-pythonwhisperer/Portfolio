@@ -102,8 +102,9 @@ $(document).ready(function (){
 });
 
 class Skill_bar {
-    constructor(id,color='#E1DE00',color_to = '#E1DE00'){
+    constructor(id,color='#000000',color_from='#FA3D3D',color_to = '#74E800'){
         this.color = color
+        this.color_from = color_from
         this.color_to = color_to
         this.id = id
         this.skill_progress_bar = new ProgressBar.Circle(this.id, {
@@ -117,7 +118,7 @@ class Skill_bar {
             text: {
               autoStyleContainer: false
             },
-            from: { color: this.color, width: 1 },
+            from: { color: this.color_from, width: 1 },
             to: { color: this.color_to, width: 4 },
             // Set default step function for all animate calls
             step: function(state, circle) {
