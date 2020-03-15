@@ -144,20 +144,24 @@
 			<div class="row js--wp-3">
 				<h1 class="h_box white_black">Work Experiences</h1>
 				{%for work in w_exp.all%}
-				<div class="col span-1-of-3 work" style="width: 30%;">
-					<div>
-						<h3>{{work.designation}}</h3>
-						<p class="location">{{work.company}} ,  {{work.location}}</p>
-						<p class="year">{{work.year}}</p>
-					</div>
-					<div>
-						<ul>
-							<li>{{work.P_1}}</li>
-							<li>{{work.P_2}}</li>
-							<li>{{work.P_3}}</li>
-						</ul>
-					</div>
-				</div>
+					{%if w_exp_len == 2%}
+						<div class="col span-1-of-2 work">
+					{% elif w_exp_len == 3%}
+						<div class="col span-1-of-3 work" style="width: 30%;">
+					{%endif%}
+							<div>
+								<h3>{{work.designation}}</h3>
+								<p class="location">{{work.company}} ,  {{work.location}}</p>
+								<p class="year">{{work.year}}</p>
+							</div>
+							<div>
+								<ul>
+									<li>{{work.P_1}}</li>
+									<li>{{work.P_2}}</li>
+									<li>{{work.P_3}}</li>
+								</ul>
+							</div>
+						</div>
 				{%endfor%}
 			</div>
 		</section>
